@@ -1,0 +1,71 @@
+# примеры API-запросов
+
+@baseUrl = http://127.0.0.1:8000/api
+
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 7a59e3eda1d8b310306c28abf4c5550892dcf083
+
+{
+  "title": "Мебель",
+  "description": "Срочно"
+}
+
+###
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token fdc3b452e3c3ffe08fdc24a8b969b67cac60c314
+
+{
+  "title": "Шкаф IKEA",
+  "description": "Срочно"
+}
+
+###
+
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 75b2526ed83834b7b6fbfae6834215bfe7c0bb2b
+
+{
+  "title": "Стол IKEA",
+  "description": "Срочно"
+}
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/7/
+Content-Type: application/json
+Authorization: Token 7a59e3eda1d8b310306c28abf4c5550892dcf083
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+# удаление объявлений
+DELETE  {{baseUrl}}/advertisements/6/
+Content-Type: application/json
+Authorization: Token 7a59e3eda1d8b310306c28abf4c5550892dcf083
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_before=2024-10-01
+Content-Type: application/json
